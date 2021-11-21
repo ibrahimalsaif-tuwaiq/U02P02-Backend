@@ -7,7 +7,7 @@ const signup = async (req, res) => {
     $or: [{ username: username }, { email: email }],
   });
   if (userExists) {
-    return res.status(403).json({
+    res.status(403).json({
       error: "Email or Username already taken!",
     });
   } else {
