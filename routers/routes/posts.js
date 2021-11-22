@@ -5,6 +5,7 @@ const {
   addPost,
   addCommentToPost,
   addLikeToPost,
+  deleteLikeFromPost,
   getUserPosts,
   getUserLikedPosts,
   getPost,
@@ -17,6 +18,7 @@ postsRouter.get("/", getPosts);
 postsRouter.post("/", addPost);
 postsRouter.post("/addComment", addCommentToPost);
 postsRouter.post("/addLike", addLikeToPost);
+postsRouter.post("/deleteLike", deleteLikeFromPost);
 postsRouter.get("/user/:id", getUserPosts);
 postsRouter.get("/likes/:id", getUserLikedPosts);
 postsRouter.get("/:id", getPost);

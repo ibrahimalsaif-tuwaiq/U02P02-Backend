@@ -69,6 +69,24 @@ const addLikeToPost = async (req, res) => {
     });
 };
 
+const deleteLikeFromPost = async (req, res) => {
+
+  postsModel
+    .findByIdAndUpdate(
+      req.body.postId,
+      { $pull: { likes: req.body.userId } },
+      { new: true }
+    )
+    .populate('comments.postedBy')
+    .populate('likes')
+    .then((result) => {
+      res.status(200).json(result);
+    })
+    .catch((err) => {
+      res.send(err);
+    });
+};
+
 const getUserPosts = async (req, res) => {
   const { id } = req.params;
 
@@ -132,6 +150,7 @@ module.exports = {
   addPost,
   addCommentToPost,
   addLikeToPost,
+  deleteLikeFromPost,
   getUserPosts,
   getUserLikedPosts,
   getPost,
