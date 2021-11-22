@@ -25,17 +25,17 @@ app.use("/login", loginRouter);
 const signupRouter = require("./routers/routes/signup");
 app.use("/signup", signupRouter);
 
+// Posts Router
+const postsRouter = require("./routers/routes/posts");
+app.use("/posts", postsRouter);
+
 // Home Router
-const homeRouter = require("./routers/routes/home");
-app.use("/", homeRouter);
+// const homeRouter = require("./routers/routes/home");
+// app.use("/", homeRouter);
 
 // Users Router
 const usersRouter = require("./routers/routes/users");
 app.use("/users", usersRouter);
-
-// Posts Router
-const postsRouter = require("./routers/routes/posts");
-app.use("/posts", postsRouter);
 
 // PORT variable
 const PORT = process.env.PORT;
