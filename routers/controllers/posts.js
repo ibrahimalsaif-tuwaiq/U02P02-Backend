@@ -1,10 +1,12 @@
 const postsModel = require("./../../db/models/postsSchema");
+const usersModel = require("./../../db/models/usersSchema");
 
 const getPosts = async (req, res) => {
   postsModel
     .find({})
-    .populate('comments.postedBy')
-    .populate('likes')
+    .populate("comments.postedBy")
+    .populate("comments.postedBy.likes")
+    .populate("creator")
     .then((result) => {
       res.status(200).json(result);
     })
@@ -31,8 +33,8 @@ const addPost = async (req, res) => {
 
 const addCommentToPost = async (req, res) => {
   const comment = {
-    comment:  req.body.comment,
-    postedBy:  req.body.postedBy,
+    comment: req.body.comment,
+    postedBy: req.body.postedBy,
   };
 
   postsModel
@@ -41,8 +43,8 @@ const addCommentToPost = async (req, res) => {
       { $push: { comments: comment } },
       { new: true }
     )
-    .populate('comments.postedBy')
-    .populate('likes')
+    .populate("comments.postedBy")
+    .populate("likes")
     .then((result) => {
       res.status(200).json(result);
     })
@@ -52,39 +54,45 @@ const addCommentToPost = async (req, res) => {
 };
 
 const addLikeToPost = async (req, res) => {
-
-  postsModel
-    .findByIdAndUpdate(
+  try {
+    postsModel.findByIdAndUpdate(
       req.body.postId,
       { $push: { likes: req.body.userId } },
-      { new: true }
-    )
-    .populate('comments.postedBy')
-    .populate('likes')
-    .then((result) => {
-      res.status(200).json(result);
-    })
-    .catch((err) => {
-      res.send(err);
-    });
+      () => {
+        console.log("Post has been liked");
+      }
+    );
+    usersModel.findByIdAndUpdate(
+      req.body.userId,
+      { $push: { likes: req.body.postId } },
+      () => {
+        console.log("Post has been liked");
+      }
+    );
+  } catch (error) {
+    res.send(error);
+  }
 };
 
 const deleteLikeFromPost = async (req, res) => {
-
-  postsModel
-    .findByIdAndUpdate(
+  try {
+    postsModel.findByIdAndUpdate(
       req.body.postId,
       { $pull: { likes: req.body.userId } },
-      { new: true }
-    )
-    .populate('comments.postedBy')
-    .populate('likes')
-    .then((result) => {
-      res.status(200).json(result);
-    })
-    .catch((err) => {
-      res.send(err);
-    });
+      () => {
+        console.log("Post has been liked");
+      }
+    );
+    usersModel.findByIdAndUpdate(
+      req.body.userId,
+      { $pull: { likes: req.body.postId } },
+      () => {
+        console.log("Post has been liked");
+      }
+    );
+  } catch (error) {
+    res.send(error);
+  }
 };
 
 const getUserPosts = async (req, res) => {
@@ -92,8 +100,22 @@ const getUserPosts = async (req, res) => {
 
   postsModel
     .find({ creator: id })
-    .populate('comments.postedBy')
-    .populate('likes')
+    .populate("comments.postedBy")
+    .populate("likes")
+    .then((result) => {
+      res.status(200).json(result);
+    })
+    .catch((err) => {
+      res.send(err);
+    });
+};
+
+const getUserFollowingPosts = async (req, res) => {
+  const { userFollowing } = req.body;
+
+  postsModel
+    .find({ creator: { $in: userFollowing } })
+    .populate("creator")
     .then((result) => {
       res.status(200).json(result);
     })
@@ -107,8 +129,8 @@ const getUserLikedPosts = async (req, res) => {
 
   postsModel
     .find({ likes: id })
-    .populate('comments.postedBy')
-    .populate('likes')
+    .populate("comments.postedBy")
+    .populate("likes")
     .then((result) => {
       res.status(200).json(result);
     })
@@ -122,8 +144,8 @@ const getPost = async (req, res) => {
 
   postsModel
     .findById(id)
-    .populate('comments.postedBy')
-    .populate('likes')
+    .populate("comments.postedBy")
+    .populate("likes")
     .then((result) => {
       res.status(200).json(result);
     })
@@ -152,6 +174,7 @@ module.exports = {
   addLikeToPost,
   deleteLikeFromPost,
   getUserPosts,
+  getUserFollowingPosts,
   getUserLikedPosts,
   getPost,
   deletePost,

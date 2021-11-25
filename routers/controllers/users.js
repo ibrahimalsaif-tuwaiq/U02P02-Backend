@@ -21,7 +21,7 @@ const getUser = (req, res) => {
     .findById(id)
     .populate("likes")
     .populate("followers")
-    .populate("following")
+    // .populate("following")
     .then((result) => {
       res.status(200).json(result);
     })
@@ -32,6 +32,8 @@ const getUser = (req, res) => {
 
 const resetPassword = (req, res) => {
   const { id } = req.params;
+  console.log(id);
+  console.log(req.body.password);
 
   usersModel
     .findByIdAndUpdate(id, { password: req.body.password }, { new: true })
@@ -80,16 +82,24 @@ const changeAvatar = (req, res) => {
 
 const followUser = (req, res) => {
   try {
-    usersModel.findByIdAndUpdate(req.body.userId, {
-      $push: { following: req.body.otherUserId },
-    }, () => {
-      console.log('User has been followed');
-    });
-    usersModel.findByIdAndUpdate(req.body.otherUserId, {
-      $push: { followers: req.body.userId },
-    }, () => {
-      console.log('User has been added to followers');
-    });
+    usersModel.findByIdAndUpdate(
+      req.body.userId,
+      {
+        $push: { following: req.body.otherUserId },
+      },
+      () => {
+        console.log("User has been followed");
+      }
+    );
+    usersModel.findByIdAndUpdate(
+      req.body.otherUserId,
+      {
+        $push: { followers: req.body.userId },
+      },
+      () => {
+        console.log("User has been added to followers");
+      }
+    );
     res.status(200).json({ message: "User followed successfully" });
   } catch (error) {
     res.json({ error });
@@ -98,56 +108,28 @@ const followUser = (req, res) => {
 
 const unFollowUser = (req, res) => {
   try {
-    usersModel.findByIdAndUpdate(req.body.userId, {
-      $pull: { following: req.body.otherUserId },
-    }, () => {
-      console.log('User has been unfollowed');
-    });
-    usersModel.findByIdAndUpdate(req.body.otherUserId, {
-      $pull: { followers: req.body.userId },
-    }, () => {
-      console.log('User has been removed from followers');
-    });
+    usersModel.findByIdAndUpdate(
+      req.body.userId,
+      {
+        $pull: { following: req.body.otherUserId },
+      },
+      () => {
+        console.log("User has been unfollowed");
+      }
+    );
+    usersModel.findByIdAndUpdate(
+      req.body.otherUserId,
+      {
+        $pull: { followers: req.body.userId },
+      },
+      () => {
+        console.log("User has been removed from followers");
+      }
+    );
     res.status(200).json({ message: "User unfollowed successfully" });
   } catch (error) {
     res.json({ error });
   }
-};
-
-const addLikeToUser = async (req, res) => {
-  usersModel
-    .findByIdAndUpdate(
-      req.body.userId,
-      { $push: { likes: req.body.postId } },
-      { new: true }
-    )
-    .populate("likes")
-    .populate("followers")
-    .populate("following")
-    .then((result) => {
-      res.status(200).json(result);
-    })
-    .catch((err) => {
-      res.send(err);
-    });
-};
-
-const deleteLikeFromUser = async (req, res) => {
-  usersModel
-    .findByIdAndUpdate(
-      req.body.userId,
-      { $pull: { likes: req.body.postId } },
-      { new: true }
-    )
-    .populate("likes")
-    .populate("followers")
-    .populate("following")
-    .then((result) => {
-      res.status(200).json(result);
-    })
-    .catch((err) => {
-      res.send(err);
-    });
 };
 
 module.exports = {
@@ -158,6 +140,4 @@ module.exports = {
   changeAvatar,
   followUser,
   unFollowUser,
-  addLikeToUser,
-  deleteLikeFromUser,
 };

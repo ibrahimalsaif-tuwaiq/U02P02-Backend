@@ -10,6 +10,9 @@ const postsSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  caption: {
+    type: String,
+  },
   likes: [
     {
       type: mongoose.Schema.Types.ObjectId,

@@ -10,14 +10,10 @@ const login = async (req, res) => {
     if (userExists.password == password) {
       res.status(200).json(userExists);
     } else {
-      res.status(403).json({
-        error: "Password is incorrect",
-      });
+      res.json("Password is incorrect");
     }
   } else {
-    res.status(403).json({
-      error: "User Doesn't Exist!!",
-    });
+    res.json("User Doesn't Exist!!");
   }
 };
 
