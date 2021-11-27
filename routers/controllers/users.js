@@ -21,7 +21,6 @@ const getUser = (req, res) => {
     .findById(id)
     .populate("likes")
     .populate("followers")
-    // .populate("following")
     .then((result) => {
       res.status(200).json(result);
     })
