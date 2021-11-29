@@ -26,13 +26,13 @@ This will install all of the required packages.
 
 ##### Key Dependencies
 
-- [Express](https://expressjs.com/) Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
+- [Express](https://expressjs.com/) is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
 
 - [mongoose](https://mongoosejs.com/) is an elegant mongodb object modeling for node.js.
 
-- [firebase](https://www.npmjs.com/package/firebase) provides the tools and infrastructure you need to develop, grow, and earn money from your app.
+- [cors](https://www.npmjs.com/package/cors) is a node.js package for providing a Connect/Express middleware that can be used to enable CORS with various options.
 
-- [axios](https://www.npmjs.com/package/axios) is a promise based HTTP client for the browser and node.js
+- [morgan](https://www.npmjs.com/package/morgan) is a HTTP request logger middleware for node.js
 
 #### Setting up the variables
 
