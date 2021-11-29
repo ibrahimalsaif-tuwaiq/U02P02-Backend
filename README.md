@@ -969,6 +969,166 @@ The API will return two error types when requests fail:
 
 </details>
 
+#### GET /users/{user_id}
+
+- General
+
+  - get a user
+
+- Sample Request
+  - `http://localhost:5000/users/619ac0e3ae4036a4acbb7d33`
+
+<details>
+<summary>Response</summary>
+
+```
+{
+    "_id": "619ac0e3ae4036a4acbb7d33",
+    "username": "ibrahim",
+    "email": "ibrahim@gmail.com",
+    "password": "112233",
+    "about": "hello",
+    "avatar": "https://firebasestorage.googleapis.com/v0/b/u02p02-c76cc.appspot.com/o/images%2F3922545-sl-456.jpg?alt=media&token=070bd4bf-a043-490e-b00e-4e4ac780759b",
+    "followers": [
+      {
+        "_id": "61a3016f9b2dea651f400e53",
+        "username": "alex",
+        "email": "alex@gmail.com",
+        "password": "1",
+        "about": "",
+        "avatar": "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png",
+        "followers": [
+          "619ac0e3ae4036a4acbb7d33"
+        ],
+        "following": [
+          "619ac0e3ae4036a4acbb7d33"
+        ],
+        "likes": [
+          "61a3023a9b2dea651f400e72",
+          "61a303339b2dea651f400eac"
+        ],
+        "created": "2021-11-28T04:11:27.315Z",
+        "__v": 0
+      },
+      {
+        "_id": "61a303699b2dea651f400f0c",
+        "username": "mo",
+        "email": "mo@gmail.com",
+        "password": "1",
+        "about": "",
+        "avatar": "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png",
+        "followers": [],
+        "following": [
+          "619ac0e3ae4036a4acbb7d33"
+        ],
+        "likes": [
+          "61a303019b2dea651f400ea6",
+          "61a302a09b2dea651f400e82",
+          "61a303339b2dea651f400eac",
+          "61a3102d9b2dea651f4010b4"
+        ],
+        "created": "2021-11-28T04:19:53.309Z",
+        "__v": 0
+      }
+    ],
+    "following": [
+      {
+        "_id": "61a3016f9b2dea651f400e53",
+        "username": "alex",
+        "email": "alex@gmail.com",
+        "password": "1",
+        "about": "",
+        "avatar": "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png",
+        "followers": [
+          "619ac0e3ae4036a4acbb7d33"
+        ],
+        "following": [
+          "619ac0e3ae4036a4acbb7d33"
+        ],
+        "likes": [
+          "61a3023a9b2dea651f400e72",
+          "61a303339b2dea651f400eac"
+        ],
+        "created": "2021-11-28T04:11:27.315Z",
+        "__v": 0
+      }
+    ],
+    "likes": [
+      {
+        "_id": "61a3023a9b2dea651f400e72",
+        "image": "https://firebasestorage.googleapis.com/v0/b/u02p02-c76cc.appspot.com/o/images%2F1687626-623217107.jpg?alt=media&token=b499bb8f-920b-4ee3-b337-45844195ed02",
+        "location": "AL-ULA, Saudi Arabia",
+        "likes": [
+          "61a3016f9b2dea651f400e53",
+          "619ac0e3ae4036a4acbb7d33"
+        ],
+        "creator": "619ac0e3ae4036a4acbb7d33",
+        "comments": [
+          {
+            "comment": "hello",
+            "postedBy": "61a303699b2dea651f400f0c",
+            "_id": "61a3039c9b2dea651f400f58",
+            "created": "2021-11-28T04:20:44.285Z"
+          }
+        ],
+        "created": "2021-11-28T04:14:50.390Z",
+        "__v": 0
+      },
+      {
+        "_id": "61a303339b2dea651f400eac",
+        "image": "https://firebasestorage.googleapis.com/v0/b/u02p02-c76cc.appspot.com/o/images%2Fgettyimages-688899881-1519413300.jpg?alt=media&token=95495fa2-59c4-4580-a0d9-829c0699ee87",
+        "location": "New York, USA",
+        "likes": [
+          "61a3016f9b2dea651f400e53",
+          "61a303699b2dea651f400f0c",
+          "619ac0e3ae4036a4acbb7d33"
+        ],
+        "creator": "61a3016f9b2dea651f400e53",
+        "comments": [
+          {
+            "comment": "hello",
+            "postedBy": "61a303699b2dea651f400f0c",
+            "_id": "61a303919b2dea651f400f34",
+            "created": "2021-11-28T04:20:33.825Z"
+          }
+        ],
+        "created": "2021-11-28T04:18:59.566Z",
+        "__v": 0
+      },
+      {
+        "_id": "61a302a09b2dea651f400e82",
+        "image": "https://firebasestorage.googleapis.com/v0/b/u02p02-c76cc.appspot.com/o/images%2F1421841-1985003692.jpg?alt=media&token=e0eb2cbd-1418-476d-a5f4-d1945e6ec9db",
+        "location": "Riyadh, Saudi Arabia",
+        "likes": [
+          "61a303699b2dea651f400f0c",
+          "619ac0e3ae4036a4acbb7d33"
+        ],
+        "creator": "619ac0e3ae4036a4acbb7d33",
+        "comments": [
+          {
+            "comment": "hello",
+            "postedBy": "61a3016f9b2dea651f400e53",
+            "_id": "61a302d49b2dea651f400e95",
+            "created": "2021-11-28T04:17:24.344Z"
+          },
+          {
+            "comment": "Hello ",
+            "postedBy": "61a303699b2dea651f400f0c",
+            "_id": "61a309a89b2dea651f401093",
+            "created": "2021-11-28T04:46:32.731Z"
+          }
+        ],
+        "created": "2021-11-28T04:16:32.211Z",
+        "__v": 0
+      }
+    ],
+    "created": "2021-11-21T21:57:55.937Z",
+    "__v": 0
+  }
+```
+
+</details>
+
 #### POST /signup
 
 - General
@@ -1775,166 +1935,6 @@ The API will return two error types when requests fail:
 
 </details>
 
-#### PUT /users/{user_id}
-
-- General
-
-  - get a user
-
-- Sample Request
-  - `http://localhost:5000/users/619ac0e3ae4036a4acbb7d33`
-
-<details>
-<summary>Response</summary>
-
-```
-{
-    "_id": "619ac0e3ae4036a4acbb7d33",
-    "username": "ibrahim",
-    "email": "ibrahim@gmail.com",
-    "password": "112233",
-    "about": "hello",
-    "avatar": "https://firebasestorage.googleapis.com/v0/b/u02p02-c76cc.appspot.com/o/images%2F3922545-sl-456.jpg?alt=media&token=070bd4bf-a043-490e-b00e-4e4ac780759b",
-    "followers": [
-      {
-        "_id": "61a3016f9b2dea651f400e53",
-        "username": "alex",
-        "email": "alex@gmail.com",
-        "password": "1",
-        "about": "",
-        "avatar": "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png",
-        "followers": [
-          "619ac0e3ae4036a4acbb7d33"
-        ],
-        "following": [
-          "619ac0e3ae4036a4acbb7d33"
-        ],
-        "likes": [
-          "61a3023a9b2dea651f400e72",
-          "61a303339b2dea651f400eac"
-        ],
-        "created": "2021-11-28T04:11:27.315Z",
-        "__v": 0
-      },
-      {
-        "_id": "61a303699b2dea651f400f0c",
-        "username": "mo",
-        "email": "mo@gmail.com",
-        "password": "1",
-        "about": "",
-        "avatar": "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png",
-        "followers": [],
-        "following": [
-          "619ac0e3ae4036a4acbb7d33"
-        ],
-        "likes": [
-          "61a303019b2dea651f400ea6",
-          "61a302a09b2dea651f400e82",
-          "61a303339b2dea651f400eac",
-          "61a3102d9b2dea651f4010b4"
-        ],
-        "created": "2021-11-28T04:19:53.309Z",
-        "__v": 0
-      }
-    ],
-    "following": [
-      {
-        "_id": "61a3016f9b2dea651f400e53",
-        "username": "alex",
-        "email": "alex@gmail.com",
-        "password": "1",
-        "about": "",
-        "avatar": "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png",
-        "followers": [
-          "619ac0e3ae4036a4acbb7d33"
-        ],
-        "following": [
-          "619ac0e3ae4036a4acbb7d33"
-        ],
-        "likes": [
-          "61a3023a9b2dea651f400e72",
-          "61a303339b2dea651f400eac"
-        ],
-        "created": "2021-11-28T04:11:27.315Z",
-        "__v": 0
-      }
-    ],
-    "likes": [
-      {
-        "_id": "61a3023a9b2dea651f400e72",
-        "image": "https://firebasestorage.googleapis.com/v0/b/u02p02-c76cc.appspot.com/o/images%2F1687626-623217107.jpg?alt=media&token=b499bb8f-920b-4ee3-b337-45844195ed02",
-        "location": "AL-ULA, Saudi Arabia",
-        "likes": [
-          "61a3016f9b2dea651f400e53",
-          "619ac0e3ae4036a4acbb7d33"
-        ],
-        "creator": "619ac0e3ae4036a4acbb7d33",
-        "comments": [
-          {
-            "comment": "hello",
-            "postedBy": "61a303699b2dea651f400f0c",
-            "_id": "61a3039c9b2dea651f400f58",
-            "created": "2021-11-28T04:20:44.285Z"
-          }
-        ],
-        "created": "2021-11-28T04:14:50.390Z",
-        "__v": 0
-      },
-      {
-        "_id": "61a303339b2dea651f400eac",
-        "image": "https://firebasestorage.googleapis.com/v0/b/u02p02-c76cc.appspot.com/o/images%2Fgettyimages-688899881-1519413300.jpg?alt=media&token=95495fa2-59c4-4580-a0d9-829c0699ee87",
-        "location": "New York, USA",
-        "likes": [
-          "61a3016f9b2dea651f400e53",
-          "61a303699b2dea651f400f0c",
-          "619ac0e3ae4036a4acbb7d33"
-        ],
-        "creator": "61a3016f9b2dea651f400e53",
-        "comments": [
-          {
-            "comment": "hello",
-            "postedBy": "61a303699b2dea651f400f0c",
-            "_id": "61a303919b2dea651f400f34",
-            "created": "2021-11-28T04:20:33.825Z"
-          }
-        ],
-        "created": "2021-11-28T04:18:59.566Z",
-        "__v": 0
-      },
-      {
-        "_id": "61a302a09b2dea651f400e82",
-        "image": "https://firebasestorage.googleapis.com/v0/b/u02p02-c76cc.appspot.com/o/images%2F1421841-1985003692.jpg?alt=media&token=e0eb2cbd-1418-476d-a5f4-d1945e6ec9db",
-        "location": "Riyadh, Saudi Arabia",
-        "likes": [
-          "61a303699b2dea651f400f0c",
-          "619ac0e3ae4036a4acbb7d33"
-        ],
-        "creator": "619ac0e3ae4036a4acbb7d33",
-        "comments": [
-          {
-            "comment": "hello",
-            "postedBy": "61a3016f9b2dea651f400e53",
-            "_id": "61a302d49b2dea651f400e95",
-            "created": "2021-11-28T04:17:24.344Z"
-          },
-          {
-            "comment": "Hello ",
-            "postedBy": "61a303699b2dea651f400f0c",
-            "_id": "61a309a89b2dea651f401093",
-            "created": "2021-11-28T04:46:32.731Z"
-          }
-        ],
-        "created": "2021-11-28T04:16:32.211Z",
-        "__v": 0
-      }
-    ],
-    "created": "2021-11-21T21:57:55.937Z",
-    "__v": 0
-  }
-```
-
-</details>
-
 #### PUT /posts/addLike
 
 - General
@@ -1998,6 +1998,7 @@ The API will return two error types when requests fail:
   "like have been removed from post"
 }
 ```
+</details>
 
 #### PUT /posts/followingPosts/{user_id}
 
