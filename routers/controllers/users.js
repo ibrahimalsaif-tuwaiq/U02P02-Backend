@@ -31,8 +31,6 @@ const getUser = (req, res) => {
 
 const resetPassword = (req, res) => {
   const { id } = req.params;
-  console.log(id);
-  console.log(req.body.password);
 
   usersModel
     .findByIdAndUpdate(id, { password: req.body.password }, { new: true })

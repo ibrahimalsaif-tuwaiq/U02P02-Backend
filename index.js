@@ -29,10 +29,6 @@ app.use("/signup", signupRouter);
 const postsRouter = require("./routers/routes/posts");
 app.use("/posts", postsRouter);
 
-// Home Router
-// const homeRouter = require("./routers/routes/home");
-// app.use("/", homeRouter);
-
 // Users Router
 const usersRouter = require("./routers/routes/users");
 app.use("/users", usersRouter);
