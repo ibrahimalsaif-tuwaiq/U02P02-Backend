@@ -85,7 +85,7 @@ The API will return two error types when requests fail:
   - gets the list of all the users.
 
 - Sample Request
-  - `http://localhost:5000/users`
+  - `https://u02p02-backend.herokuapp.com/users`
 
 <details>
 <summary>Response</summary>
@@ -356,7 +356,7 @@ The API will return two error types when requests fail:
   - get a list of all posts
 
 - Sample Request
-  - `http://localhost:5000/posts`
+  - `https://u02p02-backend.herokuapp.com/posts`
 
 <details>
 <summary>Response</summary>
@@ -528,7 +528,7 @@ The API will return two error types when requests fail:
   - get a list of a user posts
 
 - Sample Request
-  - `http://localhost:5000/user/61a3016f9b2dea651f400e53`
+  - `https://u02p02-backend.herokuapp.com/user/61a3016f9b2dea651f400e53`
 
 <details>
 <summary>Response</summary>
@@ -672,7 +672,7 @@ The API will return two error types when requests fail:
   - get a list of user liked posts
 
 - Sample Request
-  - `http://localhost:5000/posts/likes/61a303699b2dea651f400f0c`
+  - `https://u02p02-backend.herokuapp.com/posts/likes/61a303699b2dea651f400f0c`
 
 <details>
 <summary>Response</summary>
@@ -825,7 +825,7 @@ The API will return two error types when requests fail:
   - get a post
 
 - Sample Request
-  - `http://localhost:5000/posts/61a302a09b2dea651f400e82`
+  - `https://u02p02-backend.herokuapp.com/posts/61a302a09b2dea651f400e82`
 
 <details>
 <summary>Response</summary>
@@ -976,7 +976,7 @@ The API will return two error types when requests fail:
   - get a user
 
 - Sample Request
-  - `http://localhost:5000/users/619ac0e3ae4036a4acbb7d33`
+  - `https://u02p02-backend.herokuapp.com/users/619ac0e3ae4036a4acbb7d33`
 
 <details>
 <summary>Response</summary>
@@ -1142,7 +1142,7 @@ The API will return two error types when requests fail:
   - password
 
 - Sample Request
-  - `http://localhost:5000/signup`
+  - `https://u02p02-backend.herokuapp.com/signup`
   - Request Body
 
 ```
@@ -1176,7 +1176,7 @@ The API will return two error types when requests fail:
   - password
 
 - Sample Request
-  - `http://localhost:5000/login`
+  - `https://u02p02-backend.herokuapp.com/login`
   - Request Body
 
 ```
@@ -1220,7 +1220,7 @@ The API will return two error types when requests fail:
   - creator
 
 - Sample Request
-  - `http://localhost:5000/posts`
+  - `https://u02p02-backend.herokuapp.com/posts`
   - Request Body
 
 ```
@@ -1255,7 +1255,7 @@ The API will return two error types when requests fail:
   - postId
 
 - Sample Request
-  - `http://localhost:5000/posts/addComment`
+  - `https://u02p02-backend.herokuapp.com/posts/addComment`
   - Request Body
 
 ```
@@ -1367,7 +1367,7 @@ The API will return two error types when requests fail:
   - password
 
 - Sample Request
-  - `http://localhost:5000/resetPassword/619ac0e3ae4036a4acbb7d33`
+  - `https://u02p02-backend.herokuapp.com/resetPassword/619ac0e3ae4036a4acbb7d33`
   - Request Body
 
 ```
@@ -1538,7 +1538,7 @@ The API will return two error types when requests fail:
   - about
 
 - Sample Request
-  - `http://localhost:5000/changeAbout/619ac0e3ae4036a4acbb7d33`
+  - `https://u02p02-backend.herokuapp.com/changeAbout/619ac0e3ae4036a4acbb7d33`
   - Request Body
 
 ```
@@ -1709,7 +1709,7 @@ The API will return two error types when requests fail:
   - avatar
 
 - Sample Request
-  - `http://localhost:5000/changeAvatar/619ac0e3ae4036a4acbb7d33`
+  - `https://u02p02-backend.herokuapp.com/changeAvatar/619ac0e3ae4036a4acbb7d33`
   - Request Body
 
 ```
@@ -1881,7 +1881,7 @@ The API will return two error types when requests fail:
   - otherUserId
 
 - Sample Request
-  - `http://localhost:5000/followUser`
+  - `https://u02p02-backend.herokuapp.com/followUser`
   - Request Body
 
 ```
@@ -1914,7 +1914,7 @@ The API will return two error types when requests fail:
   - otherUserId
 
 - Sample Request
-  - `http://localhost:5000/unFollowUser`
+  - `https://u02p02-backend.herokuapp.com/unFollowUser`
   - Request Body
 
 ```
@@ -1947,7 +1947,7 @@ The API will return two error types when requests fail:
   - postId
 
 - Sample Request
-  - `http://localhost:5000/posts/addLike`
+  - `https://u02p02-backend.herokuapp.com/posts/addLike`
   - Request Body
 
 ```
@@ -1980,7 +1980,7 @@ The API will return two error types when requests fail:
   - postId
 
 - Sample Request
-  - `http://localhost:5000/posts/deleteLike`
+  - `https://u02p02-backend.herokuapp.com/posts/deleteLike`
   - Request Body
 
 ```
@@ -2011,7 +2011,7 @@ The API will return two error types when requests fail:
   - userFollowing
 
 - Sample Request
-  - `http://localhost:5000/posts/followingPosts/61a303699b2dea651f400f0c`
+  - `https://u02p02-backend.herokuapp.com/posts/followingPosts/61a303699b2dea651f400f0c`
   - Request Body
 
 ```
@@ -2082,7 +2082,7 @@ The API will return two error types when requests fail:
   - delete a post
 
 - Sample Request
-  - `http://localhost:5000/posts/61a3023a9b2dea651f400e72`
+  - `https://u02p02-backend.herokuapp.com/posts/61a3023a9b2dea651f400e72`
 
 <details>
 <summary>Response</summary>
